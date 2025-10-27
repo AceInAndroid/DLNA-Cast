@@ -159,7 +159,7 @@ public class NetworkAddressFactoryImpl implements NetworkAddressFactory {
 
     @Override
     public Iterator<NetworkInterface> getNetworkInterfaces() {
-        return new Iterators.Synchronized<>(networkInterfaces) {
+        return new Iterators.Synchronized<NetworkInterface>(networkInterfaces) {
             @Override
             protected void synchronizedRemove(int index) {
                 synchronized (networkInterfaces) {
@@ -171,7 +171,7 @@ public class NetworkAddressFactoryImpl implements NetworkAddressFactory {
 
     @Override
     public Iterator<InetAddress> getBindAddresses() {
-        return new Iterators.Synchronized<>(bindAddresses) {
+        return new Iterators.Synchronized<InetAddress>(bindAddresses) {
             @Override
             protected void synchronizedRemove(int index) {
                 synchronized (bindAddresses) {

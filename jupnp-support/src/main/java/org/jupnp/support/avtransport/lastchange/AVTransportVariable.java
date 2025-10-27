@@ -42,7 +42,7 @@ import org.jupnp.support.model.TransportAction;
  */
 public class AVTransportVariable {
 
-    public static Set<Class<? extends EventedValue<?>>> ALL = new HashSet<>() {
+    public static Set<Class<? extends EventedValue<?>>> ALL = new HashSet<Class<? extends EventedValue<?>>>() {
         private static final long serialVersionUID = 4641676953130701810L;
 
         {
