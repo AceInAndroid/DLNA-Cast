@@ -17,7 +17,7 @@ package com.android.cast.dlna.dmc.control
 
 import android.os.Handler
 import android.os.Looper
-import org.fourthline.cling.support.model.item.VideoItem
+import org.jupnp.support.model.item.VideoItem
 
 internal object MetadataUtils {
     private const val DIDL_LITE_XML =

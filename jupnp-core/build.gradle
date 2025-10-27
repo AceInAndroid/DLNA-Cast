@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies {
+    api 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+}
+
+sourceSets {
+    main {
+        java {
+            exclude 'org/jupnp/OSGiUpnpServiceConfiguration.java'
+            exclude 'org/jupnp/OSGiUpnpServiceConfigurationEnabler.java'
+            exclude 'org/jupnp/transport/impl/jetty/**'
+            exclude 'org/jupnp/transport/impl/osgi/**'
+            exclude 'org/jupnp/transport/impl/ServletStreamServerImpl.java'
+            exclude 'org/jupnp/transport/impl/ServletStreamServerConfigurationImpl.java'
+            exclude 'org/jupnp/transport/impl/ServletConnection.java'
+            exclude 'org/jupnp/transport/impl/ServletUpnpStream.java'
+            exclude 'org/jupnp/transport/impl/async/**'
+            exclude 'org/jupnp/transport/impl/blocking/**'
+            exclude 'org/jupnp/transport/spi/ServletContainerAdapter.java'
+            exclude 'org/jupnp/util/SpecificationViolationReporterConfig.java'
+            exclude 'org/jupnp/http/RequestInfo.java'
+        }
+    }
+}

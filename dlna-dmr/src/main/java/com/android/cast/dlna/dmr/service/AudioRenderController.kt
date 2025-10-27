@@ -3,7 +3,7 @@ package com.android.cast.dlna.dmr.service
 import android.content.Context
 import android.media.AudioManager
 import com.android.cast.dlna.core.Logger
-import org.fourthline.cling.model.types.UnsignedIntegerTwoBytes
+import org.jupnp.model.types.UnsignedIntegerTwoBytes
 
 /**
  *

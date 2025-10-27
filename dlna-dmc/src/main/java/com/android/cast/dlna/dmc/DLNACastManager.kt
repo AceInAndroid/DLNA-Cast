@@ -14,14 +14,14 @@ import com.android.cast.dlna.dmc.control.CastControlImpl
 import com.android.cast.dlna.dmc.control.DeviceControl
 import com.android.cast.dlna.dmc.control.EmptyDeviceControl
 import com.android.cast.dlna.dmc.control.OnDeviceControlListener
-import org.fourthline.cling.android.AndroidUpnpService
-import org.fourthline.cling.model.message.header.STAllHeader
-import org.fourthline.cling.model.message.header.UDADeviceTypeHeader
-import org.fourthline.cling.model.meta.Device
-import org.fourthline.cling.model.types.DeviceType
-import org.fourthline.cling.model.types.ServiceType
-import org.fourthline.cling.model.types.UDADeviceType
-import org.fourthline.cling.model.types.UDAServiceType
+import org.jupnp.android.AndroidUpnpService
+import org.jupnp.model.message.header.STAllHeader
+import org.jupnp.model.message.header.UDADeviceTypeHeader
+import org.jupnp.model.meta.Device
+import org.jupnp.model.types.DeviceType
+import org.jupnp.model.types.ServiceType
+import org.jupnp.model.types.UDADeviceType
+import org.jupnp.model.types.UDAServiceType
 
 /**
  *
@@ -133,10 +133,10 @@ object DLNACastManager : OnDeviceRegistryListener {
     var localServer: LocalServer? = null
         private set
 
-    fun startLocalHttpServer(port: Int = 8192, jetty: Boolean = true) {
+    fun startLocalHttpServer(port: Int = 8192) {
         if (localServer == null) {
             applicationContext?.run {
-                localServer = LocalServer(this, port, jetty)
+                localServer = LocalServer(this, port)
             }
         }
         localServer?.startServer()

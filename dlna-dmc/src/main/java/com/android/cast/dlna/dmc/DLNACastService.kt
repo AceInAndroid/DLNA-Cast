@@ -2,10 +2,10 @@ package com.android.cast.dlna.dmc
 
 import android.content.Intent
 import com.android.cast.dlna.core.Logger
-import org.fourthline.cling.UpnpServiceConfiguration
-import org.fourthline.cling.android.AndroidUpnpServiceConfiguration
-import org.fourthline.cling.android.AndroidUpnpServiceImpl
-import org.fourthline.cling.model.types.ServiceType
+import org.jupnp.UpnpServiceConfiguration
+import org.jupnp.android.AndroidUpnpServiceConfiguration
+import org.jupnp.android.AndroidUpnpServiceImpl
+import org.jupnp.model.types.ServiceType
 
 class DLNACastService : AndroidUpnpServiceImpl() {
     private val logger = Logger.create("CastService")

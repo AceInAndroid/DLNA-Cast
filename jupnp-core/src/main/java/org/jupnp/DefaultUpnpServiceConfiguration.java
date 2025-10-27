@@ -44,7 +44,7 @@ import org.jupnp.transport.impl.MulticastReceiverConfigurationImpl;
 import org.jupnp.transport.impl.MulticastReceiverImpl;
 import org.jupnp.transport.impl.NetworkAddressFactoryImpl;
 import org.jupnp.transport.impl.SOAPActionProcessorImpl;
-import org.jupnp.transport.impl.jetty.StreamClientConfigurationImpl;
+import org.jupnp.transport.impl.httpclient.HttpStreamClientConfiguration;
 import org.jupnp.transport.spi.DatagramIO;
 import org.jupnp.transport.spi.DatagramProcessor;
 import org.jupnp.transport.spi.GENAEventProcessor;
@@ -158,8 +158,8 @@ public class DefaultUpnpServiceConfiguration implements UpnpServiceConfiguration
 
         namespace = createNamespace();
 
-        configuration = new StreamClientConfigurationImpl(defaultExecutorService);
         transportConfiguration = TransportConfigurationProvider.getDefaultTransportConfiguration();
+        configuration = new HttpStreamClientConfiguration(defaultExecutorService);
     }
 
     @Override

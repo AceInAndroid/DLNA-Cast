@@ -9,16 +9,16 @@ import com.android.cast.dlna.core.Utils
 import com.android.cast.dlna.dms.service.ContentControl
 import com.android.cast.dlna.dms.service.ContentDirectoryServiceController
 import com.android.cast.dlna.dms.service.ContentDirectoryServiceImpl
-import org.fourthline.cling.UpnpServiceConfiguration
-import org.fourthline.cling.android.AndroidUpnpServiceConfiguration
-import org.fourthline.cling.android.AndroidUpnpServiceImpl
-import org.fourthline.cling.binding.annotations.AnnotationLocalServiceBinder
-import org.fourthline.cling.model.DefaultServiceManager
-import org.fourthline.cling.model.meta.*
-import org.fourthline.cling.model.types.ServiceType
-import org.fourthline.cling.model.types.UDADeviceType
-import org.fourthline.cling.model.types.UDN
-import org.fourthline.cling.support.contentdirectory.AbstractContentDirectoryService
+import org.jupnp.UpnpServiceConfiguration
+import org.jupnp.android.AndroidUpnpServiceConfiguration
+import org.jupnp.android.AndroidUpnpServiceImpl
+import org.jupnp.binding.annotations.AnnotationLocalServiceBinder
+import org.jupnp.model.DefaultServiceManager
+import org.jupnp.model.meta.*
+import org.jupnp.model.types.ServiceType
+import org.jupnp.model.types.UDADeviceType
+import org.jupnp.model.types.UDN
+import org.jupnp.support.contentdirectory.AbstractContentDirectoryService
 import java.util.*
 
 open class DLNAContentService : AndroidUpnpServiceImpl() {

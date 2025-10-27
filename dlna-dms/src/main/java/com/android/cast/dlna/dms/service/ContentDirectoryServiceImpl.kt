@@ -1,9 +1,9 @@
 package com.android.cast.dlna.dms.service
 
-import org.fourthline.cling.support.contentdirectory.AbstractContentDirectoryService
-import org.fourthline.cling.support.model.BrowseFlag
-import org.fourthline.cling.support.model.BrowseResult
-import org.fourthline.cling.support.model.SortCriterion
+import org.jupnp.support.contentdirectory.AbstractContentDirectoryService
+import org.jupnp.support.model.BrowseFlag
+import org.jupnp.support.model.BrowseResult
+import org.jupnp.support.model.SortCriterion
 
 internal class ContentDirectoryServiceImpl(private val control: ContentControl) : AbstractContentDirectoryService() {
     override fun browse(objectID: String, browseFlag: BrowseFlag, filter: String, firstResult: Long, maxResults: Long, orderBy: Array<SortCriterion>): BrowseResult =

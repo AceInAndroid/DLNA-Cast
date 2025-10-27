@@ -7,10 +7,6 @@ buildscript {
         google()
         mavenCentral()
         mavenLocal()
-        maven {
-            url 'http://4thline.org/m2'
-            allowInsecureProtocol = true
-        }
     }
 
     dependencies {
@@ -24,10 +20,6 @@ allprojects {
         google()
         mavenCentral()
         mavenLocal()
-        maven {
-            url 'http://4thline.org/m2'
-            allowInsecureProtocol = true
-        }
     }
 }
 

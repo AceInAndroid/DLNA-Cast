@@ -1,9 +1,9 @@
 package com.android.cast.dlna.dmr.service
 
-import org.fourthline.cling.model.types.UnsignedIntegerFourBytes
-import org.fourthline.cling.model.types.UnsignedIntegerTwoBytes
-import org.fourthline.cling.support.model.Channel
-import org.fourthline.cling.support.renderingcontrol.AbstractAudioRenderingControl
+import org.jupnp.model.types.UnsignedIntegerFourBytes
+import org.jupnp.model.types.UnsignedIntegerTwoBytes
+import org.jupnp.support.model.Channel
+import org.jupnp.support.renderingcontrol.AbstractAudioRenderingControl
 
 class AudioRenderServiceImpl(private val audioControl: AudioControl) : AbstractAudioRenderingControl() {
     override fun setMute(instanceId: UnsignedIntegerFourBytes, channelName: String, desiredMute: Boolean) = audioControl.setMute(channelName, desiredMute)

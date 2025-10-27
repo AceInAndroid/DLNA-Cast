@@ -1,12 +1,12 @@
 package com.android.cast.dlna.dmc.control
 
 import com.android.cast.dlna.core.Logger
-import org.fourthline.cling.controlpoint.SubscriptionCallback
-import org.fourthline.cling.model.gena.CancelReason
-import org.fourthline.cling.model.gena.GENASubscription
-import org.fourthline.cling.model.message.UpnpResponse
-import org.fourthline.cling.model.meta.Service
-import org.fourthline.cling.support.lastchange.LastChangeParser
+import org.jupnp.controlpoint.SubscriptionCallback
+import org.jupnp.model.gena.CancelReason
+import org.jupnp.model.gena.GENASubscription
+import org.jupnp.model.message.UpnpResponse
+import org.jupnp.model.meta.Service
+import org.jupnp.support.lastchange.LastChangeParser
 
 /**
  *
@@ -18,39 +18,39 @@ internal class CastSubscriptionCallback(
     private val callback: SubscriptionListener,
 ) : SubscriptionCallback(service, requestedDurationSeconds) {
 
-    private val logger = Logger.create("SubscriptionCallback")
+    private val subscriptionLogger = Logger.create("SubscriptionCallback")
 
     override fun failed(subscription: GENASubscription<*>, responseStatus: UpnpResponse?, exception: Exception?, defaultMsg: String?) {
-        logger.e("${getTag(subscription)} failed:${responseStatus}, $exception, $defaultMsg")
+        subscriptionLogger.e("${getTag(subscription)} failed:${responseStatus}, $exception, $defaultMsg")
         executeInMainThread { callback.failed(subscription.subscriptionId) }
     }
 
     override fun established(subscription: GENASubscription<*>) {
-        logger.i("${getTag(subscription)} established")
+        subscriptionLogger.i("${getTag(subscription)} established")
         executeInMainThread { callback.established(subscription.subscriptionId) }
     }
 
     override fun ended(subscription: GENASubscription<*>, reason: CancelReason?, responseStatus: UpnpResponse?) {
-        logger.w("${getTag(subscription)} ended: $reason, $responseStatus")
+        subscriptionLogger.w("${getTag(subscription)} ended: $reason, $responseStatus")
         executeInMainThread { callback.ended(subscription.subscriptionId) }
     }
 
     override fun eventsMissed(subscription: GENASubscription<*>, numberOfMissedEvents: Int) {
-        logger.w("${getTag(subscription)} eventsMissed: $numberOfMissedEvents")
+        subscriptionLogger.w("${getTag(subscription)} eventsMissed: $numberOfMissedEvents")
     }
 
     override fun eventReceived(subscription: GENASubscription<*>) {
         val lastChangeEventValue = subscription.currentValues["LastChange"]?.value?.toString()
         if (lastChangeEventValue.isNullOrBlank()) return
-        logger.i("${getTag(subscription)} eventReceived: ${subscription.currentValues.keys}")
+        subscriptionLogger.i("${getTag(subscription)} eventReceived: ${subscription.currentValues.keys}")
         try {
             val events = lastChangeParser.parse(lastChangeEventValue)?.instanceIDs?.firstOrNull()?.values
             events?.forEach { value ->
-                logger.i("    value: [${value.javaClass.simpleName}] $value")
+                subscriptionLogger.i("    value: [${value.javaClass.simpleName}] $value")
                 executeInMainThread { callback.onReceived(subscription.subscriptionId, value) }
             }
         } catch (e: Exception) {
-            logger.w("${getTag(subscription)} currentValues: ${subscription.currentValues}")
+            subscriptionLogger.w("${getTag(subscription)} currentValues: ${subscription.currentValues}")
             e.printStackTrace()
         }
     }

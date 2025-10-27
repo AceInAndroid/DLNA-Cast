@@ -21,10 +21,10 @@ import com.android.cast.dlna.dmc.DLNACastManager
 import com.android.cast.dlna.dmc.control.DeviceControl
 import com.android.cast.dlna.dmc.control.OnDeviceControlListener
 import com.android.cast.dlna.dmc.control.ServiceActionCallback
-import org.fourthline.cling.model.meta.Device
-import org.fourthline.cling.support.model.DIDLContent
-import org.fourthline.cling.support.model.container.Container
-import org.fourthline.cling.support.model.item.Item
+import org.jupnp.model.meta.Device
+import org.jupnp.support.model.DIDLContent
+import org.jupnp.support.model.container.Container
+import org.jupnp.support.model.item.Item
 import kotlin.math.roundToInt
 
 class ContentFragment : Fragment() {

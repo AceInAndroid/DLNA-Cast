@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import com.android.cast.dlna.demo.DetailContainer
 import com.android.cast.dlna.demo.R
 import com.android.cast.dlna.demo.R.layout
-import org.fourthline.cling.model.meta.Action
-import org.fourthline.cling.model.meta.Device
-import org.fourthline.cling.model.meta.Service
+import org.jupnp.model.meta.Action
+import org.jupnp.model.meta.Device
+import org.jupnp.model.meta.Service
 
 class DeviceServiceActionFragment : Fragment() {
     private val device: Device<*, *, *> by lazy { (requireParentFragment() as DetailContainer).getDevice() }

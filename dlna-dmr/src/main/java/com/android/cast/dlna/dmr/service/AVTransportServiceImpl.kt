@@ -1,13 +1,13 @@
 package com.android.cast.dlna.dmr.service
 
-import org.fourthline.cling.model.types.UnsignedIntegerFourBytes
-import org.fourthline.cling.support.avtransport.AbstractAVTransportService
-import org.fourthline.cling.support.model.DeviceCapabilities
-import org.fourthline.cling.support.model.MediaInfo
-import org.fourthline.cling.support.model.PositionInfo
-import org.fourthline.cling.support.model.TransportAction
-import org.fourthline.cling.support.model.TransportInfo
-import org.fourthline.cling.support.model.TransportSettings
+import org.jupnp.model.types.UnsignedIntegerFourBytes
+import org.jupnp.support.avtransport.AbstractAVTransportService
+import org.jupnp.support.model.DeviceCapabilities
+import org.jupnp.support.model.MediaInfo
+import org.jupnp.support.model.PositionInfo
+import org.jupnp.support.model.TransportAction
+import org.jupnp.support.model.TransportInfo
+import org.jupnp.support.model.TransportSettings
 
 class AVTransportServiceImpl(private val avTransportControl: AvTransportControl) : AbstractAVTransportService() {
     override fun getCurrentInstanceIds(): Array<UnsignedIntegerFourBytes> = arrayOf(UnsignedIntegerFourBytes(0))

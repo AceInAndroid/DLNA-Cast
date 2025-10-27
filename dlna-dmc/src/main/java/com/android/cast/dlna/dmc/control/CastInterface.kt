@@ -1,15 +1,15 @@
 package com.android.cast.dlna.dmc.control
 
-import org.fourthline.cling.model.meta.Device
-import org.fourthline.cling.support.avtransport.lastchange.AVTransportVariable.TransportState
-import org.fourthline.cling.support.lastchange.EventedValue
-import org.fourthline.cling.support.model.BrowseFlag
-import org.fourthline.cling.support.model.DIDLContent
-import org.fourthline.cling.support.model.MediaInfo
-import org.fourthline.cling.support.model.PositionInfo
-import org.fourthline.cling.support.model.TransportInfo
-import org.fourthline.cling.support.renderingcontrol.lastchange.EventedValueChannelMute
-import org.fourthline.cling.support.renderingcontrol.lastchange.EventedValueChannelVolume
+import org.jupnp.model.meta.Device
+import org.jupnp.support.avtransport.lastchange.AVTransportVariable.TransportState
+import org.jupnp.support.lastchange.EventedValue
+import org.jupnp.support.model.BrowseFlag
+import org.jupnp.support.model.DIDLContent
+import org.jupnp.support.model.MediaInfo
+import org.jupnp.support.model.PositionInfo
+import org.jupnp.support.model.TransportInfo
+import org.jupnp.support.renderingcontrol.lastchange.EventedValueChannelMute
+import org.jupnp.support.renderingcontrol.lastchange.EventedValueChannelVolume
 
 interface DeviceControl : AvTransportServiceAction, RendererServiceAction, ContentServiceAction
 
@@ -44,7 +44,7 @@ interface OnDeviceControlListener {
         }
     }
 
-    fun onAvTransportStateChanged(state: org.fourthline.cling.support.model.TransportState) {}
+    fun onAvTransportStateChanged(state: org.jupnp.support.model.TransportState) {}
     fun onRendererVolumeChanged(volume: Int) {}
     fun onRendererVolumeMuteChanged(mute: Boolean) {}
 }

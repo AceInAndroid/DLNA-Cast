@@ -70,7 +70,7 @@ public class AndroidUpnpServiceImpl extends Service {
                 // Now we can concurrently run the Cling shutdown code, without occupying the
                 // Android main UI thread. This will complete probably after the main UI thread
                 // is done.
-                super.shutdown(true);
+                super.shutdown();
             }
         };
     }

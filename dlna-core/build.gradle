@@ -19,27 +19,19 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+        coreLibraryDesugaringEnabled true
+    }
+    kotlinOptions {
+        jvmTarget = '11'
     }
 }
 
 dependencies {
-    // Cling library required
-    api 'org.fourthline.cling:cling-core:2.1.1'
-    api 'org.fourthline.cling:cling-support:2.1.1'
-    // Servlet
-    api 'javax.servlet:javax.servlet-api:3.1.0'
-    // Jetty
-    api 'org.eclipse.jetty:jetty-server:8.1.21.v20160908'
-    api 'org.eclipse.jetty:jetty-servlet:8.1.21.v20160908'
-    api 'org.eclipse.jetty:jetty-client:8.1.21.v20160908'
-    // Nano http
+    api project(':jupnp-android')
     api 'org.nanohttpd:nanohttpd:2.3.1'
-    // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-}
-repositories {
-    mavenCentral()
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 }
 apply from: './publish.gradle'

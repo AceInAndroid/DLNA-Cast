@@ -3,7 +3,7 @@ package com.android.cast.dlna.dmr
 import android.os.Parcel
 import android.os.Parcelable
 import android.os.Parcelable.Creator
-import org.fourthline.cling.support.model.TransportState
+import org.jupnp.support.model.TransportState
 
 /**
  *

@@ -4,16 +4,16 @@ import com.android.cast.dlna.dmc.DLNACastManager
 import com.android.cast.dlna.dmc.control.BaseServiceExecutor.AVServiceExecutorImpl
 import com.android.cast.dlna.dmc.control.BaseServiceExecutor.ContentServiceExecutorImpl
 import com.android.cast.dlna.dmc.control.BaseServiceExecutor.RendererServiceExecutorImpl
-import org.fourthline.cling.controlpoint.ControlPoint
-import org.fourthline.cling.model.meta.Device
-import org.fourthline.cling.support.avtransport.lastchange.AVTransportLastChangeParser
-import org.fourthline.cling.support.lastchange.EventedValue
-import org.fourthline.cling.support.model.BrowseFlag
-import org.fourthline.cling.support.model.DIDLContent
-import org.fourthline.cling.support.model.MediaInfo
-import org.fourthline.cling.support.model.PositionInfo
-import org.fourthline.cling.support.model.TransportInfo
-import org.fourthline.cling.support.renderingcontrol.lastchange.RenderingControlLastChangeParser
+import org.jupnp.controlpoint.ControlPoint
+import org.jupnp.model.meta.Device
+import org.jupnp.support.avtransport.lastchange.AVTransportLastChangeParser
+import org.jupnp.support.lastchange.EventedValue
+import org.jupnp.support.model.BrowseFlag
+import org.jupnp.support.model.DIDLContent
+import org.jupnp.support.model.MediaInfo
+import org.jupnp.support.model.PositionInfo
+import org.jupnp.support.model.TransportInfo
+import org.jupnp.support.renderingcontrol.lastchange.RenderingControlLastChangeParser
 
 class CastControlImpl(
     controlPoint: ControlPoint,

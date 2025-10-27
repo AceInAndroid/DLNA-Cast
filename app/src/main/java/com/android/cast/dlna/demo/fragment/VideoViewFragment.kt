@@ -30,10 +30,10 @@ import com.android.cast.dlna.dmc.DLNACastManager
 import com.android.cast.dlna.dmc.control.DeviceControl
 import com.android.cast.dlna.dmc.control.OnDeviceControlListener
 import com.android.cast.dlna.dmc.control.ServiceActionCallback
-import org.fourthline.cling.model.meta.Device
-import org.fourthline.cling.support.model.PositionInfo
-import org.fourthline.cling.support.model.TransportState
-import org.fourthline.cling.support.model.TransportState.NO_MEDIA_PRESENT
+import org.jupnp.model.meta.Device
+import org.jupnp.support.model.PositionInfo
+import org.jupnp.support.model.TransportState
+import org.jupnp.support.model.TransportState.NO_MEDIA_PRESENT
 import java.util.Formatter
 import java.util.Locale
 

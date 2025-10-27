@@ -1,6 +1,6 @@
 package com.android.cast.dlna.dmc
 
-import org.fourthline.cling.model.meta.Device
+import org.jupnp.model.meta.Device
 
 /**
  * this listener call in UI thread.

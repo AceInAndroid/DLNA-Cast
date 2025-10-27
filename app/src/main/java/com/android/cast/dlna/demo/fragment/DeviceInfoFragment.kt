@@ -14,9 +14,9 @@ import com.android.cast.dlna.dmc.DLNACastManager
 import com.android.cast.dlna.dmc.control.DeviceControl
 import com.android.cast.dlna.dmc.control.OnDeviceControlListener
 import com.android.cast.dlna.dmc.control.ServiceActionCallback
-import org.fourthline.cling.model.meta.Device
-import org.fourthline.cling.support.model.MediaInfo
-import org.fourthline.cling.support.model.TransportInfo
+import org.jupnp.model.meta.Device
+import org.jupnp.support.model.MediaInfo
+import org.jupnp.support.model.TransportInfo
 
 class DeviceInfoFragment : Fragment() {
 

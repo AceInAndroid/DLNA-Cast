@@ -11,7 +11,7 @@ import com.android.cast.dlna.demo.fragment.DeviceInfoFragment
 import com.android.cast.dlna.demo.fragment.DeviceServiceActionFragment
 import com.android.cast.dlna.demo.fragment.VideoViewFragment
 import com.android.cast.dlna.dmc.DLNACastManager
-import org.fourthline.cling.model.meta.Device
+import org.jupnp.model.meta.Device
 
 interface DetailContainer {
     fun getDevice(): Device<*, *, *>

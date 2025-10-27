@@ -12,7 +12,7 @@ import com.android.cast.dlna.core.Utils
 import com.android.cast.dlna.demo.fragment.OnItemClickListener
 import com.android.cast.dlna.dmc.DLNACastManager
 import com.permissionx.guolindev.PermissionX
-import org.fourthline.cling.model.meta.Device
+import org.jupnp.model.meta.Device
 
 class MainActivity : AppCompatActivity(), OnItemClickListener {
 

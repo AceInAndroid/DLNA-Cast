@@ -8,13 +8,13 @@ import android.provider.MediaStore.Images
 import android.provider.MediaStore.MediaColumns
 import android.provider.MediaStore.Video
 import com.android.cast.dlna.core.Logger
-import org.fourthline.cling.support.contentdirectory.DIDLParser
-import org.fourthline.cling.support.model.BrowseFlag
-import org.fourthline.cling.support.model.BrowseResult
-import org.fourthline.cling.support.model.DIDLContent
-import org.fourthline.cling.support.model.Res
-import org.fourthline.cling.support.model.item.ImageItem
-import org.fourthline.cling.support.model.item.Item
+import org.jupnp.support.contentdirectory.DIDLParser
+import org.jupnp.support.model.BrowseFlag
+import org.jupnp.support.model.BrowseResult
+import org.jupnp.support.model.DIDLContent
+import org.jupnp.support.model.Res
+import org.jupnp.support.model.item.ImageItem
+import org.jupnp.support.model.item.Item
 import kotlin.math.max
 
 class ContentDirectoryServiceController(context: Context) : ContentControl {

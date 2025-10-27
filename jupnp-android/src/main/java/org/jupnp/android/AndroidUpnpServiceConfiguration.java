@@ -24,15 +24,15 @@ import org.jupnp.model.Namespace;
 import org.jupnp.model.ServerClientTokens;
 import org.jupnp.transport.impl.GENAEventProcessorImpl;
 import org.jupnp.transport.impl.SOAPActionProcessorImpl;
-import org.jupnp.transport.impl.ServletStreamServerConfigurationImpl;
-import org.jupnp.transport.impl.ServletStreamServerImpl;
-import org.jupnp.transport.impl.jetty.JettyServletContainer;
-import org.jupnp.transport.impl.jetty.JettyStreamClientImpl;
-import org.jupnp.transport.impl.jetty.StreamClientConfigurationImpl;
+import org.jupnp.transport.impl.httpclient.HttpStreamClientConfiguration;
+import org.jupnp.transport.impl.httpclient.HttpStreamClientImpl;
+import org.jupnp.transport.impl.httpserver.HttpStreamServerConfiguration;
+import org.jupnp.transport.impl.httpserver.HttpStreamServerImpl;
 import org.jupnp.transport.spi.GENAEventProcessor;
 import org.jupnp.transport.spi.NetworkAddressFactory;
 import org.jupnp.transport.spi.SOAPActionProcessor;
 import org.jupnp.transport.spi.StreamClient;
+import org.jupnp.transport.spi.InitializationException;
 import org.jupnp.transport.spi.StreamServer;
 
 import android.os.Build;
@@ -40,8 +40,8 @@ import android.os.Build;
 /**
  * Configuration settings for deployment on Android.
  * <p>
- * This configuration utilizes the Jetty transport implementation found in <code>org.jupnp.transport.impl.jetty</code>
- * for TCP/HTTP networking, as client and server. The servlet context path for UPnP is set to <code>/upnp</code>.
+ * This configuration utilizes a lightweight HTTP transport implementation for TCP/HTTP networking.
+ * The servlet context path for UPnP is set to <code>/upnp</code>.
  * </p>
  * <p>
  * This configuration utilizes {@link UDA10ServiceDescriptorBinderSAXImpl}, the system property
@@ -79,26 +79,25 @@ public class AndroidUpnpServiceConfiguration extends DefaultUpnpServiceConfigura
 
     @Override
     public StreamClient createStreamClient() {
-        // Use Jetty
-        return new JettyStreamClientImpl(new StreamClientConfigurationImpl(getSyncProtocolExecutorService()) {
-            @Override
-            public String getUserAgentValue(int majorVersion, int minorVersion) {
-                // TODO: UPNP VIOLATION: Synology NAS requires User-Agent to contain
-                // "Android" to return DLNA protocolInfo required to stream to Samsung TV
-                // see: http://two-play.com/forums/viewtopic.php?f=6&t=81
-                ServerClientTokens tokens = new ServerClientTokens(majorVersion, minorVersion);
-                tokens.setOsName("Android");
-                tokens.setOsVersion(Build.VERSION.RELEASE);
-                return tokens.toString();
-            }
-        });
+        try {
+            return new HttpStreamClientImpl(new HttpStreamClientConfiguration(getSyncProtocolExecutorService()) {
+                @Override
+                public String getUserAgentValue(int majorVersion, int minorVersion) {
+                    ServerClientTokens tokens = new ServerClientTokens(majorVersion, minorVersion);
+                    tokens.setOsName("Android");
+                    tokens.setOsVersion(Build.VERSION.RELEASE);
+                    return tokens.toString();
+                }
+            });
+        } catch (InitializationException e) {
+            throw new RuntimeException("Failed to create HTTP stream client", e);
+        }
     }
 
     @Override
     public StreamServer createStreamServer(NetworkAddressFactory networkAddressFactory) {
-        // Use Jetty, start/stop a new shared instance of JettyServletContainer
-        return new ServletStreamServerImpl(new ServletStreamServerConfigurationImpl(JettyServletContainer.INSTANCE,
-                networkAddressFactory.getStreamListenPort()));
+        return new HttpStreamServerImpl(
+                new HttpStreamServerConfiguration(networkAddressFactory.getStreamListenPort()));
     }
 
     @Override

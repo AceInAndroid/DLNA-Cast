@@ -4,15 +4,15 @@ import android.content.Context
 import android.content.Intent
 import com.android.cast.dlna.core.Logger
 import com.android.cast.dlna.dmr.CastAction
-import org.fourthline.cling.model.types.ErrorCode.INVALID_ARGS
-import org.fourthline.cling.model.types.UnsignedIntegerTwoBytes
-import org.fourthline.cling.support.avtransport.AVTransportException
-import org.fourthline.cling.support.model.DeviceCapabilities
-import org.fourthline.cling.support.model.MediaInfo
-import org.fourthline.cling.support.model.PositionInfo
-import org.fourthline.cling.support.model.TransportAction
-import org.fourthline.cling.support.model.TransportInfo
-import org.fourthline.cling.support.model.TransportSettings
+import org.jupnp.model.types.ErrorCode.INVALID_ARGS
+import org.jupnp.model.types.UnsignedIntegerTwoBytes
+import org.jupnp.support.avtransport.AVTransportException
+import org.jupnp.support.model.DeviceCapabilities
+import org.jupnp.support.model.MediaInfo
+import org.jupnp.support.model.PositionInfo
+import org.jupnp.support.model.TransportAction
+import org.jupnp.support.model.TransportInfo
+import org.jupnp.support.model.TransportSettings
 import java.net.URI
 
 const val actionSetAvTransport = "com.dlna.action.SetAvTransport"

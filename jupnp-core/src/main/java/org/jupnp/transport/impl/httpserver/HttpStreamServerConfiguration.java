@@ -13,25 +13,23 @@
  *
  * SPDX-License-Identifier: CDDL-1.0
  */
-package org.jupnp.transport;
+package org.jupnp.transport.impl.httpserver;
 
-import org.jupnp.transport.impl.http.HttpTransportConfiguration;
-import org.jupnp.transport.spi.StreamClientConfiguration;
 import org.jupnp.transport.spi.StreamServerConfiguration;
 
 /**
- * This is the central place to switch between transport implementations.
- *
- * @author Victor Toni - inital contribution
- *
+ * Simple configuration holder for the JDK HTTP server based stream server.
  */
-public final class TransportConfigurationProvider {
+public class HttpStreamServerConfiguration implements StreamServerConfiguration {
 
-    private TransportConfigurationProvider() {
+    private final int listenPort;
+
+    public HttpStreamServerConfiguration(int listenPort) {
+        this.listenPort = listenPort;
     }
 
-    @SuppressWarnings("unchecked")
-    public static <SCC extends StreamClientConfiguration, SSC extends StreamServerConfiguration> TransportConfiguration<SCC, SSC> getDefaultTransportConfiguration() {
-        return (TransportConfiguration<SCC, SSC>) new HttpTransportConfiguration();
+    @Override
+    public int getListenPort() {
+        return listenPort;
     }
 }

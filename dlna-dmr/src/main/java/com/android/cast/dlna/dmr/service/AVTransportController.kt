@@ -3,10 +3,10 @@ package com.android.cast.dlna.dmr.service
 import android.content.Context
 import com.android.cast.dlna.core.Logger
 import com.android.cast.dlna.dmr.RenderControl
-import org.fourthline.cling.model.ModelUtil
-import org.fourthline.cling.support.avtransport.AVTransportException
-import org.fourthline.cling.support.model.*
-import org.fourthline.cling.support.model.TransportAction.*
+import org.jupnp.model.ModelUtil
+import org.jupnp.support.avtransport.AVTransportException
+import org.jupnp.support.model.*
+import org.jupnp.support.model.TransportAction.*
 
 class AVTransportController(override val applicationContext: Context) : AvTransportControl {
     companion object {

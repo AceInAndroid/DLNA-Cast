@@ -3,9 +3,9 @@ package com.android.cast.dlna.dmc
 import android.os.Handler
 import android.os.Looper
 import com.android.cast.dlna.core.Logger
-import org.fourthline.cling.model.meta.Device
-import org.fourthline.cling.registry.DefaultRegistryListener
-import org.fourthline.cling.registry.Registry
+import org.jupnp.model.meta.Device
+import org.jupnp.registry.DefaultRegistryListener
+import org.jupnp.registry.Registry
 
 /**
  *

@@ -12,8 +12,7 @@ interface HttpServer {
 class LocalServer(
     context: Context,
     private val port: Int = 8192,
-    jetty: Boolean = true,
-    httpServer: HttpServer = if (jetty) JettyHttpServer(port) else NanoHttpServer(port),
+    httpServer: HttpServer = NanoHttpServer(port),
 ) : HttpServer by httpServer {
     val ip: String = Utils.getWiFiIpAddress(context)
     val baseUrl: String = "http://$ip:$port"

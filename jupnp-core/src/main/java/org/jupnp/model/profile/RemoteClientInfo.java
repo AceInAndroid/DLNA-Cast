@@ -17,7 +17,6 @@ package org.jupnp.model.profile;
 
 import java.net.InetAddress;
 
-import org.jupnp.http.RequestInfo;
 import org.jupnp.model.message.Connection;
 import org.jupnp.model.message.StreamRequestMessage;
 import org.jupnp.model.message.UpnpHeaders;
@@ -106,21 +105,39 @@ public class RemoteClientInfo extends ClientInfo {
 
     // TODO: Remove this once we know how ClientProfile will look like
     public boolean isWMPRequest() {
-        return RequestInfo.isWMPRequest(getRequestUserAgent());
+        return isWMPRequest(getRequestUserAgent());
     }
 
     public boolean isXbox360Request() {
-        return RequestInfo.isXbox360Request(getRequestUserAgent(),
+        return isXbox360Request(getRequestUserAgent(),
                 getRequestHeaders().getFirstHeaderString(UpnpHeader.Type.SERVER));
     }
 
     public boolean isPS3Request() {
-        return RequestInfo.isPS3Request(getRequestUserAgent(),
+        return isPS3Request(getRequestUserAgent(),
                 getRequestHeaders().getFirstHeaderString(UpnpHeader.Type.EXT_AV_CLIENT_INFO));
     }
 
     @Override
     public String toString() {
         return "(" + getClass().getSimpleName() + ") Remote Address: " + getRemoteAddress();
+    }
+
+    private static boolean isWMPRequest(String userAgent) {
+        return userAgent != null && userAgent.contains("Windows-Media-Player") && !isJRiverRequest(userAgent);
+    }
+
+    private static boolean isJRiverRequest(String userAgent) {
+        return userAgent != null && (userAgent.contains("J-River") || userAgent.contains("J. River"));
+    }
+
+    private static boolean isXbox360Request(String userAgent, String server) {
+        return (userAgent != null && (userAgent.contains("Xbox") || userAgent.contains("Xenon")))
+                || (server != null && server.contains("Xbox"));
+    }
+
+    private static boolean isPS3Request(String userAgent, String avClientInfo) {
+        return (userAgent != null && userAgent.contains("PLAYSTATION 3"))
+                || (avClientInfo != null && avClientInfo.contains("PLAYSTATION 3"));
     }
 }

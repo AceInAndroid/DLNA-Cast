@@ -7,7 +7,7 @@ class RendererApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         // LoggingUtil.resetRootHandler(FixedAndroidLogHandler())
-        java.util.logging.Logger.getLogger("org.fourthline.cling").level = Level.CONFIG
+        java.util.logging.Logger.getLogger("org.jupnp").level = Level.CONFIG
         com.android.cast.dlna.core.Logger.printThread = true
         com.android.cast.dlna.core.Logger.enabled = true
         com.android.cast.dlna.core.Logger.level = com.android.cast.dlna.core.Level.D

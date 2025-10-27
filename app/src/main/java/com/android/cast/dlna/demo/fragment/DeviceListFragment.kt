@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.android.cast.dlna.demo.R
 import com.android.cast.dlna.dmc.DLNACastManager
 import com.android.cast.dlna.dmc.OnDeviceRegistryListener
-import org.fourthline.cling.model.meta.Device
+import org.jupnp.model.meta.Device
 
 class DeviceListFragment : Fragment() {
     private lateinit var adapter: DeviceAdapter
